@@ -1,1 +1,10 @@
 .env
+node_modules/
+.jules/
+.claude/
+.cursor/
+.opencode/
+.agent/
+.agents/
+.ai/
+.antigravity/
