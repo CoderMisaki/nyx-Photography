@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F8F8F6;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F1F1EF;
+  --color-surface-muted: #EAEAE7;
+  --color-ink: #171717;
+  --color-ink-secondary: #666666;
+  --color-ink-muted: #999999;
+  --color-border: #E4E4E1;
+  --color-border-soft: #EEEEEB;
+  --color-accent: #AFAFA8;
+  --color-accent-dark: #777770;
+  --color-champagne: #C9A96E;
+  --color-champagne-light: #D4B483;
+  --color-bone: #F6F5F0;
+
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--color-champagne);
+  color: white;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 2px;
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Content Visibility (offscreen perf) ── */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
+}
+
+/* ── Image loading states ── */
+.img-reveal {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-editorial);
+}
+.img-reveal.loaded {
+  opacity: 1;
+}
+
+/* ── Utility: hide on touch ── */
+@media (pointer: coarse) {
+  .no-touch {
+    display: none !important;
+  }
+}
