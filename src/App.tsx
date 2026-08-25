@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { Navbar } from '@/components/navigation/Navbar';
@@ -15,34 +15,38 @@ import { CategoryId, ALL_PHOTOGRAPHS, PhotographerImage, getImagesByCategory } f
 
 function MainPortfolio() {
   const [activeCategory, setActiveCategory] = useState<CategoryId | 'all'>('all');
-  
-  // Lightbox State
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<PhotographerImage[]>(ALL_PHOTOGRAPHS);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  // Modals
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const lenisRef = useRef<Lenis | null>(null);
 
-  // Initialize Lenis smooth scroll
+  // Optimized Lenis Smooth Scroll Setup
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobile ? 0.9 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
+      wheelMultiplier: isMobile ? 0.8 : 1.0,
+      touchMultiplier: 1.5,
     });
 
+    lenisRef.current = lenis;
+
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
@@ -60,86 +64,63 @@ function MainPortfolio() {
     setLightboxOpen(true);
   };
 
+  const scrollToId = (id: string) => {
+    const target = document.getElementById(id);
+    if (target) {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(target, { offset: -20, duration: 1.2 });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background text-primary font-sans antialiased selection:bg-primary selection:text-background transition-colors duration-400">
-      {/* Navigation */}
+    <div className="min-h-screen bg-background text-primary font-sans antialiased selection:bg-primary selection:text-background transition-colors duration-300">
       <Navbar
         activeCategory={activeCategory}
         onSelectCategory={(cat) => {
           setActiveCategory(cat);
+          scrollToId('work-section');
         }}
-        onOpenAbout={() => {
-          const aboutEl = document.getElementById('about-section');
-          if (aboutEl) {
-            aboutEl.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            setAboutModalOpen(true);
-          }
-        }}
-        onOpenContact={() => {
-          const contactEl = document.getElementById('contact-section');
-          if (contactEl) {
-            contactEl.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            setContactModalOpen(true);
-          }
-        }}
+        onOpenAbout={() => scrollToId('about-section')}
+        onOpenContact={() => scrollToId('contact-section')}
       />
 
-      {/* Main Experience */}
       <main className="relative">
-        {/* 01 — HERO */}
         <EditorialHero
           onSelectCategory={(cat) => {
             setActiveCategory(cat);
-            const workEl = document.getElementById('work-section');
-            if (workEl) workEl.scrollIntoView({ behavior: 'smooth' });
+            scrollToId('work-section');
           }}
-          onExploreClick={() => {
-            const workEl = document.getElementById('work-section');
-            if (workEl) workEl.scrollIntoView({ behavior: 'smooth' });
-          }}
+          onExploreClick={() => scrollToId('work-section')}
         />
 
-        {/* 02 — SELECTED WORK */}
         <SelectedWork
           onSelectCategory={(cat) => {
             setActiveCategory(cat);
-            const workEl = document.getElementById('work-section');
-            if (workEl) workEl.scrollIntoView({ behavior: 'smooth' });
+            scrollToId('work-section');
           }}
           onOpenLightboxWithImage={handleOpenSelectedWorkLightbox}
         />
 
-        {/* 03 — CATEGORY INDEX & DEDICATED CHAPTER GALLERIES */}
         <CategoryContainer
           activeCategory={activeCategory}
           onSelectCategory={setActiveCategory}
           onOpenLightbox={handleOpenLightbox}
         />
 
-        {/* 04 — FEATURED 3D SPATIAL EXHIBITION SECTION */}
         <ThreeDExhibition isStandalone={false} />
 
-        {/* 05 — PROFILE / ABOUT (WITH INTERACTIVE PROFILE CAROUSEL) */}
-        <AboutSection
-          onContactClick={() => {
-            const contactEl = document.getElementById('contact-section');
-            if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+        <AboutSection onContactClick={() => scrollToId('contact-section')} />
 
-        {/* 06 — SELECTED STORIES / ESSAYS */}
         <EditorialStories />
 
-        {/* 07 — CONTACT & COMMISSION */}
         <ContactSection />
 
-        {/* 08 — FOOTER */}
         <EditorialFooter />
       </main>
 
-      {/* Lightbox System */}
       <Lightbox
         images={lightboxImages}
         currentIndex={lightboxIndex}
@@ -148,27 +129,23 @@ function MainPortfolio() {
         onNavigate={(newIdx) => setLightboxIndex(newIdx)}
       />
 
-      {/* About Modal Fallback */}
       {aboutModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-fadeIn">
-          <div className="bg-background max-w-4xl w-full border border-border relative my-8 shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-background max-w-4xl w-full border border-border relative my-8 shadow-2xl p-6">
             <button
               onClick={() => setAboutModalOpen(false)}
               className="absolute top-6 right-6 font-mono text-xs uppercase text-secondary hover:text-primary p-2"
             >
               [CLOSE ✕]
             </button>
-            <AboutSection
-              onContactClick={() => {
-                setAboutModalOpen(false);
-                setContactModalOpen(true);
-              }}
-            />
+            <AboutSection onContactClick={() => {
+              setAboutModalOpen(false);
+              setContactModalOpen(true);
+            }} />
           </div>
         </div>
       )}
 
-      {/* Contact Modal Fallback */}
       {contactModalOpen && (
         <ContactSection
           isOpenModal={true}
