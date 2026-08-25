@@ -52,11 +52,11 @@ export const BoxingGallery: React.FC<BoxingGalleryProps> = ({
             className="lg:col-span-7 group cursor-pointer overflow-hidden bg-surface border border-border relative flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.06)]"
           >
             <div className="aspect-[4/5] sm:aspect-[3/4] overflow-hidden relative bg-surface-soft">
-              <img
+              <img decoding="async"
                 src={images[0].src}
                 alt={images[0].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial grayscale-[15%] group-hover:grayscale-0"
-                loading="eager"
+                loading="lazy"
               />
               <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm text-white font-mono text-[10px] px-3 py-1 border border-white/20 uppercase tracking-widest">
                 COMBAT TRUTH
@@ -85,7 +85,7 @@ export const BoxingGallery: React.FC<BoxingGalleryProps> = ({
                 className="group cursor-pointer bg-surface border border-border overflow-hidden flex flex-col hover:shadow-lg transition-all flex-1"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-surface-soft relative flex-1 min-h-[190px]">
-                  <img
+                  <img decoding="async"
                     src={img.src}
                     alt={img.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -126,7 +126,7 @@ export const BoxingGallery: React.FC<BoxingGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border overflow-hidden hover:border-primary/50 transition-all flex flex-col justify-between"
             >
               <div className="aspect-[3/4] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-editorial"
@@ -155,7 +155,7 @@ export const BoxingGallery: React.FC<BoxingGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border overflow-hidden hover:border-primary transition-all"
             >
               <div className="aspect-[1/1] overflow-hidden bg-surface-soft">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-editorial"

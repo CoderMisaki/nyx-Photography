@@ -119,7 +119,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
         {/* The Photograph */}
         <div className="relative max-w-full max-h-[80vh] flex items-center justify-center">
-          <img
+          <img decoding="async"
             src={currentImage.src}
             alt={currentImage.title}
             className="max-h-[80vh] max-w-full object-contain shadow-2xl transition-transform duration-500"

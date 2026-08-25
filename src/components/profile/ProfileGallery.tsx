@@ -128,11 +128,11 @@ export const ProfileGallery: React.FC<ProfileGalleryProps> = ({
                 transform: isActive && isDragging ? `translateX(${dragOffset}px)` : undefined,
               }}
             >
-              <img
+              <img decoding="async"
                 src={img.src}
                 alt={`Photographer Profile - ${img.id}`}
                 className="w-full h-full object-cover object-top"
-                loading="eager"
+                loading="lazy"
               />
               {/* Monograph Watermark Badge */}
               <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm px-2 py-0.5 text-[9px] font-mono tracking-widest text-primary uppercase border border-border">
@@ -231,7 +231,7 @@ export const ProfileGallery: React.FC<ProfileGalleryProps> = ({
               }`}
               aria-label={`View photo ${idx + 1}`}
             >
-              <img src={img.src} alt="" className="w-full h-full object-cover" />
+              <img decoding="async" src={img.src} alt="" className="w-full h-full object-cover" />
             </button>
           ))}
         </div>

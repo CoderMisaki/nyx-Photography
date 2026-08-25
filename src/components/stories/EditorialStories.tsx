@@ -28,7 +28,7 @@ export const EditorialStories: React.FC = () => {
             className="group bg-surface border border-border overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-500"
           >
             <div className="aspect-[16/9] overflow-hidden bg-surface-soft relative">
-              <img
+              <img decoding="async"
                 src={story.coverImage}
                 alt={story.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
