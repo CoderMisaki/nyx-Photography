@@ -71,7 +71,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
         {/* Right Column: Hero Cover Photo Display */}
         <div className="lg:col-span-5 relative">
           <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] bg-surface-soft overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-border">
-            <img
+            <img decoding="async"
               src="/images/2/stadion1.jpg"
               alt="Sanctuary Under Floodlights - Stadium"
               className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-editorial"

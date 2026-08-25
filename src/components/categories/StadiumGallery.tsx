@@ -51,11 +51,11 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
           className="group relative cursor-pointer overflow-hidden bg-surface-soft border border-border shadow-[0_15px_40px_rgba(0,0,0,0.04)]"
         >
           <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden">
-            <img
+            <img decoding="async"
               src={images[0].src}
               alt={images[0].title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-editorial"
-              loading="eager"
+              loading="lazy"
             />
           </div>
 
@@ -88,7 +88,7 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
             className="md:col-span-7 group cursor-pointer overflow-hidden bg-surface-soft border border-border relative"
           >
             <div className="aspect-[16/10] overflow-hidden">
-              <img
+              <img decoding="async"
                 src={images[1].src}
                 alt={images[1].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -111,7 +111,7 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
             className="md:col-span-5 group cursor-pointer overflow-hidden bg-surface-soft border border-border relative"
           >
             <div className="aspect-[4/3] overflow-hidden">
-              <img
+              <img decoding="async"
                 src={images[2].src}
                 alt={images[2].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -140,7 +140,7 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-500"
             >
               <div className="aspect-[16/11] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -171,7 +171,7 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
           className="group cursor-pointer relative overflow-hidden bg-surface-soft border border-border shadow-[0_15px_40px_rgba(0,0,0,0.04)]"
         >
           <div className="aspect-[16/8] md:aspect-[21/8] overflow-hidden">
-            <img
+            <img decoding="async"
               src={images[11].src}
               alt={images[11].title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-editorial"
@@ -205,7 +205,7 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border overflow-hidden hover:border-primary/40 transition-all"
             >
               <div className="aspect-[4/3] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-editorial"

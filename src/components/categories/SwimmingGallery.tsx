@@ -51,11 +51,11 @@ export const SwimmingGallery: React.FC<SwimmingGalleryProps> = ({
           className="group cursor-pointer relative overflow-hidden bg-surface-soft border border-border shadow-[0_20px_50px_rgba(0,0,0,0.04)]"
         >
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
-            <img
+            <img decoding="async"
               src={images[0].src}
               alt={images[0].title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-editorial"
-              loading="eager"
+              loading="lazy"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6 md:p-10 text-white">
@@ -80,7 +80,7 @@ export const SwimmingGallery: React.FC<SwimmingGalleryProps> = ({
               className="md:col-span-8 group cursor-pointer bg-surface border border-border p-3 overflow-hidden shadow-md"
             >
               <div className="aspect-[16/10] overflow-hidden bg-surface-soft">
-                <img
+                <img decoding="async"
                   src={images[1].src}
                   alt={images[1].title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -101,7 +101,7 @@ export const SwimmingGallery: React.FC<SwimmingGalleryProps> = ({
               className="md:col-span-4 group cursor-pointer bg-surface border border-border p-3 overflow-hidden shadow-lg md:-ml-8 md:mt-12 z-10"
             >
               <div className="aspect-[3/4] overflow-hidden bg-surface-soft">
-                <img
+                <img decoding="async"
                   src={images[2].src}
                   alt={images[2].title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -130,7 +130,7 @@ export const SwimmingGallery: React.FC<SwimmingGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border p-4 overflow-hidden hover:shadow-lg transition-all flex flex-col justify-between"
             >
               <div className="aspect-[4/3] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
@@ -159,7 +159,7 @@ export const SwimmingGallery: React.FC<SwimmingGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border p-4 overflow-hidden hover:border-primary transition-all"
             >
               <div className="aspect-[16/10] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"

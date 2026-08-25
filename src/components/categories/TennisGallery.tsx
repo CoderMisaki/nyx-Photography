@@ -53,11 +53,11 @@ export const TennisGallery: React.FC<TennisGalleryProps> = ({
             className="lg:col-span-4 group cursor-pointer bg-surface border border-border p-3 overflow-hidden hover:shadow-lg transition-all"
           >
             <div className="aspect-[3/4] overflow-hidden bg-surface-soft relative">
-              <img
+              <img decoding="async"
                 src={images[1].src}
                 alt={images[1].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"
-                loading="eager"
+                loading="lazy"
               />
               <div className="absolute top-2 left-2 bg-surface/90 text-primary font-mono text-[9px] px-2 py-0.5 uppercase border border-border">
                 BASELINE
@@ -77,11 +77,11 @@ export const TennisGallery: React.FC<TennisGalleryProps> = ({
             className="lg:col-span-8 group cursor-pointer bg-surface border border-border p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden"
           >
             <div className="aspect-[16/10] overflow-hidden bg-surface-soft relative">
-              <img
+              <img decoding="async"
                 src={images[0].src}
                 alt={images[0].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-editorial"
-                loading="eager"
+                loading="lazy"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-surface/95 backdrop-blur-md p-4 border border-border flex items-center justify-between">
                 <div>
@@ -110,7 +110,7 @@ export const TennisGallery: React.FC<TennisGalleryProps> = ({
               className="group cursor-pointer bg-surface border border-border p-3 overflow-hidden hover:border-primary transition-all flex flex-col justify-between"
             >
               <div className="aspect-[4/5] overflow-hidden bg-surface-soft relative">
-                <img
+                <img decoding="async"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-editorial"
@@ -135,7 +135,7 @@ export const TennisGallery: React.FC<TennisGalleryProps> = ({
           className="group cursor-pointer bg-surface border border-border p-4 relative overflow-hidden"
         >
           <div className="aspect-[21/9] overflow-hidden bg-surface-soft relative">
-            <img
+            <img decoding="async"
               src={images[6].src}
               alt={images[6].title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-editorial"

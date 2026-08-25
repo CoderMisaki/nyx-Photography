@@ -103,7 +103,7 @@ const ButtonSocialIconDemo = () => {
         type="button"
         className="rounded-lg hover:scale-120 transition-all duration-300 cursor-pointer"
       >
-        <img
+        <img decoding="async"
           src="https://images.shadcnspace.com/assets/svgs/icon-google.svg"
           alt="google icon"
           className="h-4 w-4"
@@ -115,12 +115,12 @@ const ButtonSocialIconDemo = () => {
         type="button"
         className="rounded-lg hover:scale-120 transition-all duration-300 cursor-pointer"
       >
-        <img
+        <img decoding="async"
           src="https://images.shadcnspace.com/assets/svgs/icon-github.svg"
           alt="github icon"
           className="dark:hidden h-4 w-4"
         />
-        <img
+        <img decoding="async"
           src="https://images.shadcnspace.com/assets/svgs/icon-github-white.svg"
           alt="github icon"
           className="hidden dark:block h-4 w-4"
@@ -132,7 +132,7 @@ const ButtonSocialIconDemo = () => {
         type="button"
         className="rounded-lg hover:scale-120 transition-all duration-300 cursor-pointer"
       >
-        <img
+        <img decoding="async"
           src="https://images.shadcnspace.com/assets/svgs/icon-linkedin.svg"
           alt="linkedin icon"
           className="h-4 w-4"
@@ -144,7 +144,7 @@ const ButtonSocialIconDemo = () => {
         type="button"
         className="rounded-lg hover:scale-120 transition-all duration-300 cursor-pointer"
       >
-        <img
+        <img decoding="async"
           src="https://images.shadcnspace.com/assets/svgs/icon-facebook.svg"
           alt="facebook icon"
           className="h-4 w-4"

@@ -89,7 +89,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
                 onClick={() => onOpenLightboxWithImage(item.id, item.index)}
                 className="aspect-[16/11] overflow-hidden bg-surface-soft relative cursor-pointer"
               >
-                <img
+                <img decoding="async"
                   src={item.imgSrc}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-editorial"
