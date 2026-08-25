@@ -13,4 +13,10 @@ node_modules/
 .ai/
 .antigravity/
 
-screenshots/
+.next/
+dist/
+build/
+coverage/
+
+*.log
+.DS_Store
