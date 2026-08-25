@@ -1,5 +1,9 @@
 .env
+.env.*
+!.env.example
+
 node_modules/
+
 .jules/
 .claude/
 .cursor/
@@ -8,3 +12,5 @@ node_modules/
 .agents/
 .ai/
 .antigravity/
+
+screenshots/
