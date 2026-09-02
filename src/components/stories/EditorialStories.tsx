@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Clock } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { EDITORIAL_STORIES } from '@/data/photography';
 
 export const EditorialStories: React.FC = () => {
@@ -45,10 +45,6 @@ export const EditorialStories: React.FC = () => {
                   <span>{story.category}</span>
                   <span>•</span>
                   <span>{story.date}</span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-2.5 h-2.5" /> {story.readTime}
-                  </span>
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-light text-primary group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors mb-3">

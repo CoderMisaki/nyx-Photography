@@ -207,7 +207,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     type="text"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    placeholder="e.g. Paris 2026 / Jakarta"
+                    placeholder="e.g. Indonesia / Jakarta"
                     className="w-full bg-background border border-border p-3 text-xs font-sans text-primary focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>

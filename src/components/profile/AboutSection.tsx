@@ -96,16 +96,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
                   SELECTED COMMISSIONS & PUBLICATIONS
                 </span>
                 <ul className="space-y-1.5 font-mono text-xs text-secondary">
-                  <li>• L'Équipe Magazine</li>
                   <li>• Vogue Sport International</li>
                   <li>• Sports Illustrated Editorial</li>
-                  <li>• Leica Fotografie International (LFI)</li>
                   <li>• ESPN Editorial Feature</li>
                 </ul>
               </div>
             </div>
 
-            {/* Gear / Kit Archive */}
+            {/* Gear / Kit Archive - sinkron Sony A9 */}
             <div className="pt-6 border-t border-border">
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted block mb-3">
                 OPTICAL KIT & CAMERAS
@@ -113,19 +111,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-[11px]">
                 <div className="p-2.5 bg-surface border border-border rounded-sm">
                   <span className="text-muted block text-[9px]">PRIMARY BODY</span>
-                  <span className="text-primary font-medium">Canon EOS R5</span>
+                  <span className="text-primary font-medium">Sony A9</span>
                 </div>
                 <div className="p-2.5 bg-surface border border-border rounded-sm">
                   <span className="text-muted block text-[9px]">DOCUMENTARY BODY</span>
-                  <span className="text-primary font-medium">Leica SL2-S</span>
+                  <span className="text-primary font-medium">Sony A9</span>
                 </div>
                 <div className="p-2.5 bg-surface border border-border rounded-sm">
                   <span className="text-muted block text-[9px]">HIGH-SPEED TELEPHOTO</span>
-                  <span className="text-primary font-medium">RF 400mm f/2.8L</span>
+                  <span className="text-primary font-medium">Sony A9 • FE 400mm</span>
                 </div>
                 <div className="p-2.5 bg-surface border border-border rounded-sm">
                   <span className="text-muted block text-[9px]">PORTRAIT PRIME</span>
-                  <span className="text-primary font-medium">RF 85mm f/1.2L</span>
+                  <span className="text-primary font-medium">Sony A9 • FE 85mm</span>
                 </div>
               </div>
             </div>

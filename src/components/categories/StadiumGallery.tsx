@@ -165,17 +165,17 @@ export const StadiumGallery: React.FC<StadiumGalleryProps> = ({
         })}
       </div>
 
-      {/* Large Featured Horizontal Split: Image 11 */}
+      {/* Large Featured Horizontal Split: Image 11 - tampil utuh tanpa crop */}
       {images[11] && (
         <div
           onClick={() => onOpenLightbox(11)}
           className="group cursor-pointer relative overflow-hidden bg-surface-soft border border-border shadow-[0_15px_40px_rgba(0,0,0,0.04)]"
         >
-          <div className="aspect-[16/8] md:aspect-[21/8] overflow-hidden">
+          <div className="w-full overflow-hidden bg-surface-soft">
             <img decoding="async" fetchPriority="low"
               src={images[11].src}
               alt={images[11].title}
-              className="w-full h-full object-cover gallery-img group-hover:scale-105 transition-transform duration-1000 ease-editorial"
+              className="w-full h-auto block gallery-img group-hover:scale-[1.02] transition-transform duration-700 ease-editorial"
               onLoad={() => markImageCached(images[11].src)} loading="lazy"
             />
           </div>

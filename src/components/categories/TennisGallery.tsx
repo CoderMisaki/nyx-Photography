@@ -129,17 +129,17 @@ export const TennisGallery: React.FC<TennisGalleryProps> = ({
         })}
       </div>
 
-      {/* Wide Precision Follow-through */}
+      {/* Wide Precision Follow-through - tampil utuh tanpa crop */}
       {images[6] && (
         <div
           onClick={() => onOpenLightbox(6)}
           className="group cursor-pointer bg-surface border border-border p-4 relative overflow-hidden"
         >
-          <div className="aspect-[21/9] overflow-hidden bg-surface-soft relative">
+          <div className="w-full overflow-hidden bg-surface-soft">
             <img decoding="async" fetchPriority="low"
               src={images[6].src}
               alt={images[6].title}
-              className="w-full h-full object-cover gallery-img group-hover:scale-105 transition-transform duration-700 ease-editorial"
+              className="w-full h-auto block gallery-img group-hover:scale-[1.02] transition-transform duration-700 ease-editorial"
               onLoad={() => markImageCached(images[6].src)} loading="lazy"
             />
           </div>
